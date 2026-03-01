@@ -1,6 +1,6 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
 import { mapActions, mapState } from 'pinia'
+import { defineComponent } from 'vue'
 import { useUserStore } from '@/store'
 
 export default defineComponent({
@@ -30,7 +30,9 @@ export default defineComponent({
     <h1>{{ msg }}</h1>
 
     <div class="card">
-      <button type="button" @click="count++">count is {{ count }}</button>
+      <button type="button" @click="count++">
+        count is {{ count }}
+      </button>
       <p>
         Edit
         <code>components/HelloWorld.vue</code> to test HMR
@@ -47,7 +49,9 @@ export default defineComponent({
       <a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a>
       in your IDE for a better DX
     </p>
-    <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+    <p class="read-the-docs">
+      Click on the Vite and Vue logos to learn more
+    </p>
   </div>
 </template>
 

@@ -1,9 +1,0 @@
-{
-  "extends": [
-    "@antfu/eslint-config",
-    "plugin:prettier/recommended"
-  ],
-  "rules": {
-    "curly": ["error", "all"]
-  }
-}

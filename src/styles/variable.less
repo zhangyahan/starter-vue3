@@ -1,10 +1,84 @@
-@primary-color: #fff;
+// LESS Variables
+// 颜色变量
+@primary-color: #007bff;
+@success-color: #28a745;
+@warning-color: #ffc107;
+@danger-color: #dc3545;
+@info-color: #17a2b8;
 
-:root {
-  color: #888;
-  font-synthesis: none;
-  text-rendering: optimizelegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-size-adjust: 100%;
+// 字体变量
+@base-font-size: 16px;
+@base-line-height: 1.5;
+@base-font-family: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
+
+// 间距变量
+@space-unit: 8px;
+@space-xs: @space-unit * 0.5;
+@space-sm: @space-unit * 1;
+@space-md: @space-unit * 2;
+@space-lg: @space-unit * 3;
+@space-xl: @space-unit * 4;
+
+// 断点变量
+@breakpoint-xs: 0;
+@breakpoint-sm: 576px;
+@breakpoint-md: 768px;
+@breakpoint-lg: 992px;
+@breakpoint-xl: 1200px;
+@breakpoint-xxl: 1400px;
+
+// Mixins
+.flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.flex-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.text-clamp(@lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: @lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.transition(@property: all, @duration: 0.3s, @timing: ease-in-out) {
+  transition: @property @duration @timing;
+}
+
+// Less media query mixins - 使用detached rulesets实现
+.media-sm(@rules) {
+  @media (max-width: @breakpoint-sm) {
+    @rules();
+  }
+}
+
+.media-md(@rules) {
+  @media (max-width: @breakpoint-md) {
+    @rules();
+  }
+}
+
+.media-lg(@rules) {
+  @media (max-width: @breakpoint-lg) {
+    @rules();
+  }
+}
+
+.media-xl(@rules) {
+  @media (max-width: @breakpoint-xl) {
+    @rules();
+  }
+}
+
