@@ -4,9 +4,9 @@
 - [x] **vue-router**
 - [x] **pnpm**
 - [x] **less**
+- [ ] **scss**
 - [x] **stylelint**
-- [x] **eslint**
-- [x] **prettier**
+- [x] **eslint&@antfu/eslint-config**
 - [x] **commitlint**
 - [x] **lint-staged**
 - [x] **simple-git-hooks**

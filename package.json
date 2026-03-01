@@ -52,22 +52,20 @@
     "vue-tsc": "^3.2.5"
   },
   "simple-git-hooks": {
-    "pre-commit": "npx lint-staged",
+    "pre-commit": "pnpm lint-staged",
     "preserveUnused": [
       "commit-msg"
     ]
   },
   "lint-staged": {
-    "*.{html,vue}": [
-      "stylelint --fix",
+    "*.{js,ts,jsx,tsx,vue,html}": [
       "eslint --fix"
+    ],
+    "*.{html,vue}": [
+      "stylelint --fix"
     ],
     "*.{css,less,scss}": [
       "stylelint --fix"
-    ],
-    "*": [
-      "eslint --fix"
     ]
-
   }
 }
