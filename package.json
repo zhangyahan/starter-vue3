@@ -19,7 +19,9 @@
     "preinstall": "npx only-allow pnpm",
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
     "pinia": "^3.0.4",

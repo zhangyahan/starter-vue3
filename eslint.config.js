@@ -4,7 +4,6 @@ export default antfu(
   {
     vue: true,
     typescript: true,
-    javascript: true,
     formatters: {
       // 使用 stylelint 进行格式化
       css: false,
@@ -17,7 +16,6 @@ export default antfu(
         jsxSingleQuote: true,
       },
     },
-    gitignore: true,
     stylistic: {
       indent: 2,
       quotes: 'single',
@@ -31,21 +29,14 @@ export default antfu(
       '**/uni_modules',
       '**/libs',
       '**/static',
-      '**/tests',
+      '**/.cache',
+      '**/coverage',
+      '**/.output',
     ],
+  },
+  {
+    files: ['**/*.vue'],
     rules: {
-      'curly': ['error', 'all'],
-      'dot-notation': ['warn'],
-      'no-console': ['warn'],
-
-      'style/max-len': ['warn', {
-        code: 100,
-        tabWidth: 2,
-        ignoreComments: true,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-      }],
-
       'vue/max-attributes-per-line': ['error', { singleline: 3, multiline: 1 }],
       'vue/first-attribute-linebreak': ['error', {
         singleline: 'beside',
@@ -82,7 +73,28 @@ export default antfu(
       'vue/require-explicit-emits': ['warn'],
       'vue/no-v-text-v-html-on-component': ['off'],
       'vue/v-slot-style': ['off'],
-      'vue/no-setup-props-reactivity-loss': ['warn'],
+      'vue/component-api-style': ['error', ['script-setup']],
+      'vue/define-macros-order': ['error', {
+        order: ['defineOptions', 'defineProps', 'defineEmits', 'defineModel', 'defineSlots'],
+      }],
+      'vue/prefer-import-from-vue': 'error',
+      'vue/define-props-declaration': ['error', 'type-based'],
+      'vue/define-emits-declaration': ['error', 'type-based'],
+      'vue/no-setup-props-reactivity-loss': 'error',
+      'vue/no-ref-object-reactivity-loss': 'error',
+      'vue/component-name-in-template-casing': ['error', 'PascalCase', {
+        registeredComponentsOnly: false,
+        ignores: [],
+      }],
+    },
+  },
+  {
+    rules: {
+      'curly': ['error', 'all'],
+      'dot-notation': ['warn'],
+      'no-console': ['warn'],
+
+      'style/max-len': ['off'],
 
       'regexp/no-super-linear-backtracking': ['off'],
       'regexp/no-unused-capturing-group': ['off'],

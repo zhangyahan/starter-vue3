@@ -12,43 +12,41 @@
 
     <p>
       Check out
-      <a
-        href="https://vuejs.org/guide/quick-start.html#local"
-        target="_blank">create-vue</a>, the official Vue + Vite
+      <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the official Vue + Vite
       starter
     </p>
-    <p>Install<a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a><a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a>in your IDE for a better DX</p>
+    <p>Install<a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a><a
+      href="https://github.com/vuejs/language-tools"
+      target="_blank">Volar</a>in your IDE for a better DX
+    </p>
     <p class="read-the-docs">
       Click on the Vite and Vue logos to learn more
     </p>
   </div>
 </template>
 
-<script lang="ts">
-import { mapActions, mapState } from 'pinia'
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
 import { useUserStore } from '@/store'
 
-export default defineComponent({
-  props: {
-    msg: String,
-  },
-  data() {
-    return {
-      count: 0,
-    }
-  },
-  computed: {
-    ...mapState(useUserStore, ['name', 'getName']),
-  },
-  mounted() {
-    // this.msg
-    this.setName('里斯')
-  },
-  methods: {
-    ...mapActions(useUserStore, ['setName']),
-  },
+defineProps<{
+  msg: string
+}>()
+
+const count = ref(0)
+
+const { setName } = useUserStore()
+
+onMounted(() => {
+  setName('里斯')
 })
+
+if (true) {
+  ///
+}
+else {
+  ///
+}
 </script>
 
 <style scoped>
